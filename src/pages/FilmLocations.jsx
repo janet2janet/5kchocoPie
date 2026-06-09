@@ -130,7 +130,7 @@ const LocationCard = forwardRef(function LocationCard({ loc, active, added, onSe
 
       {expanded && (
         <div className={styles.expanded}>
-          <img src={loc.photo} alt={loc.name} className={styles.photo} loading="lazy" />
+          <img src={import.meta.env.BASE_URL + loc.photo} alt={loc.name} className={styles.photo} loading="lazy" />
 
           <div className={styles.blurbSection}>
             <div className={styles.blurbLabel}>🎬 IN THE FILMS</div>
