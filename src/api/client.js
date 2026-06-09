@@ -1,32 +1,32 @@
-const BASE = '/api/projects'
+const KEY = '5kchocoPie-projects'
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(KEY)) || [] }
+  catch { return [] }
+}
+
+function save(projects) {
+  localStorage.setItem(KEY, JSON.stringify(projects))
+}
 
 export async function getProjects() {
-  const res = await fetch(BASE)
-  if (!res.ok) throw new Error('Failed to load projects')
-  return res.json()
+  return load()
 }
 
 export async function createProject(data) {
-  const res = await fetch(BASE, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-  if (!res.ok) throw new Error('Failed to create project')
-  return res.json()
+  const projects = load()
+  const project = { ...data, id: crypto.randomUUID(), createdAt: new Date().toISOString() }
+  save([...projects, project])
+  return project
 }
 
 export async function updateProject(id, data) {
-  const res = await fetch(`${BASE}/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  })
-  if (!res.ok) throw new Error('Failed to update project')
-  return res.json()
+  const projects = load()
+  const updated = projects.map(p => p.id === id ? { ...p, ...data } : p)
+  save(updated)
+  return updated.find(p => p.id === id)
 }
 
 export async function deleteProject(id) {
-  const res = await fetch(`${BASE}/${id}`, { method: 'DELETE' })
-  if (!res.ok) throw new Error('Failed to delete project')
+  save(load().filter(p => p.id !== id))
 }
