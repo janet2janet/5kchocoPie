@@ -1,0 +1,225 @@
+.page {
+  min-height: 100vh;
+  padding: 24px 24px 0;
+  font-family: Verdana, Tahoma, 'Arial Narrow', sans-serif;
+}
+
+/* ── Film Strip ── */
+.filmstrip {
+  display: flex;
+  height: 22px;
+  overflow: hidden;
+  background: #1a0008;
+  border-top: 2px solid var(--sg-border);
+  border-bottom: 2px solid var(--sg-border);
+}
+
+.filmCell {
+  flex-shrink: 0;
+  width: 20px;
+  height: 100%;
+  border-right: 2px solid #2a0010;
+  position: relative;
+  background: #1a0008;
+}
+
+.filmCell::before {
+  content: '';
+  position: absolute;
+  top: 3px; left: 4px;
+  width: 12px; height: 7px;
+  background: #3a0018;
+  border: 1px solid #4a0020;
+}
+
+.filmCell::after {
+  content: '';
+  position: absolute;
+  bottom: 3px; left: 4px;
+  width: 12px; height: 7px;
+  background: #3a0018;
+  border: 1px solid #4a0020;
+}
+
+/* ── Hero ── */
+.hero {
+  text-align: center;
+  padding: 36px 16px 20px;
+}
+
+.heroTag {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: var(--sg-pink-mid);
+  letter-spacing: 5px;
+  margin-bottom: 14px;
+  text-shadow: 0 0 8px var(--sg-accent);
+}
+
+.heroTitle {
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.heroSF {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(11px, 2.2vw, 20px);
+  color: var(--sg-content);
+  text-shadow: 2px 2px 0 var(--sg-bg-dark), 0 0 20px rgba(255,20,102,0.5);
+  letter-spacing: 6px;
+  display: block;
+}
+
+.heroFilm {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(18px, 4.5vw, 42px);
+  color: var(--sg-accent);
+  text-shadow: 3px 3px 0 var(--sg-bg-dark), 0 0 30px rgba(255,20,102,0.6);
+  letter-spacing: 3px;
+  display: block;
+}
+
+.heroSub {
+  font-size: 12px;
+  color: var(--sg-text-light);
+  max-width: 460px;
+  margin: 0 auto 18px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.heroDivider {
+  font-size: 14px;
+  color: var(--sg-panel);
+  letter-spacing: 2px;
+}
+
+/* ── Intro Panel ── */
+.intro { padding: 16px; }
+
+.intro :global(.window) {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--sg-content);
+  border: 1px solid var(--sg-border);
+  box-shadow: 3px 3px 0 var(--sg-bg-dark);
+}
+
+.intro :global(.window-titlebar) {
+  background: linear-gradient(to right, var(--sg-bg-dark), var(--sg-panel-dark));
+  border-bottom: 1px solid var(--sg-accent);
+}
+
+.intro :global(.window-btn) {
+  background: var(--sg-panel-dark);
+  border-color: var(--sg-panel) var(--sg-bg-dark) var(--sg-bg-dark) var(--sg-panel);
+  color: var(--sg-text-light);
+}
+
+.intro :global(.window-btn:hover) {
+  background: var(--sg-accent);
+  color: #fff;
+}
+
+.intro :global(.window-content) {
+  background: var(--sg-content);
+  color: var(--sg-text-dark);
+  font-family: Verdana, Tahoma, sans-serif;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.intro :global(.y2k-divider) {
+  color: var(--sg-panel);
+}
+
+/* ── Feature Cards ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  padding: 20px 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--sg-panel);
+  border: 1px solid var(--sg-border);
+  box-shadow: 3px 3px 0 var(--sg-bg-dark);
+  text-decoration: none;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--sg-bg-dark);
+  background: var(--sg-pink-mid);
+}
+
+.cardTitlebar {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--sg-border);
+}
+
+.cardTitle {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #fff;
+  text-shadow: 1px 1px 0 var(--sg-bg-dark);
+}
+
+.cardBody {
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  background: var(--sg-content);
+}
+
+.cardIcon { font-size: 32px; }
+
+.cardSub {
+  font-family: 'VT323', monospace;
+  font-size: 16px;
+  color: var(--sg-panel-dark);
+  font-style: italic;
+}
+
+.cardDesc {
+  font-size: 10px;
+  color: var(--sg-text-dark);
+  text-align: center;
+  line-height: 1.6;
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+.cardBtn {
+  margin-top: auto;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  background: var(--sg-panel-dark);
+  color: #fff;
+  border: 1px solid var(--sg-border);
+  padding: 5px 12px;
+}
+
+.card:hover .cardBtn {
+  background: var(--sg-accent);
+  color: #fff;
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 14px;
+  font-size: 10px;
+  color: var(--sg-pink-mid);
+  font-family: Verdana, Tahoma, sans-serif;
+  opacity: 0.7;
+  margin-top: 10px;
+}

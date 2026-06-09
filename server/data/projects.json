@@ -1,0 +1,30 @@
+[
+  {
+    "id": "24434559-1211-49db-823d-e8bce4e3bf28",
+    "title": "hehe",
+    "description": "total COOLNESS.",
+    "budget": {
+      "camera": [
+        {
+          "id": "b0deffa8-76ed-481a-8731-ed5dcc027619",
+          "name": "camera",
+          "detail": "blackmagic",
+          "days": "4",
+          "cost": 500
+        }
+      ],
+      "gear": [],
+      "cast": [
+        {
+          "id": "8dd4df4a-db41-4111-b8a3-bb5d729cba94",
+          "name": "anand",
+          "detail": "anand",
+          "days": "5",
+          "cost": 100
+        }
+      ],
+      "crew": []
+    },
+    "createdAt": "2026-06-09T01:56:42.699Z"
+  }
+]

@@ -1,0 +1,242 @@
+export const sfFilmLocations = [
+  {
+    id: 1,
+    name: 'Fort Point',
+    address: 'Marine Dr, San Francisco, CA 94129',
+    lat: 37.8104,
+    lng: -122.4769,
+    neighborhood: 'Presidio',
+    films: ['Vertigo (1958)'],
+    filmBlurb:
+      'Alfred Hitchcock chose the dramatic archways beneath the Golden Gate Bridge for the pivotal scene where Scottie (Jimmy Stewart) rescues a mysterious woman from the bay. The raw stone fortress and crashing surf made it unforgettable.',
+    historyBlurb:
+      'Built between 1853 and 1861, Fort Point is the only brick Civil War-era fort west of the Mississippi. Its massive arched casements were designed to withstand cannon fire. When the Golden Gate Bridge was constructed in the 1930s, engineers preserved the fort by incorporating it beneath the south anchorage.',
+    photo: '/images/fortpoint.jpg',
+    website: 'https://www.nps.gov/fopo/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Fort_Point,_San_Francisco',
+  },
+  {
+    id: 2,
+    name: 'Hotel Vertigo',
+    address: '940 Sutter St, San Francisco, CA 94109',
+    lat: 37.788,
+    lng: -122.4163,
+    neighborhood: 'Nob Hill',
+    films: ['Vertigo (1958)'],
+    filmBlurb:
+      'Originally the York Hotel, this is where Hitchcock\'s Scottie installs the mysterious Judy and transforms her into the image of the lost Madeleine. The hotel was renamed Hotel Vertigo in 2009 to honor the film\'s legacy.',
+    historyBlurb:
+      "Built in 1925, the hotel sits in Nob Hill's historic corridor. Its Art Deco bones and location made it ideal for Hitchcock, who filmed extensively in this neighborhood. Today the lobby pays tribute to the film with spiral motifs and vintage film stills.",
+    photo: '/images/hotelvertigo.jpg',
+    website: 'https://www.hotelvertigosf.com/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Hotel_Vertigo_(San_Francisco)',
+  },
+  {
+    id: 3,
+    name: 'Mission Dolores Cemetery',
+    address: '3321 16th St, San Francisco, CA 94114',
+    lat: 37.7652,
+    lng: -122.4268,
+    neighborhood: 'Mission',
+    films: ['Vertigo (1958)'],
+    filmBlurb:
+      'The ancient cemetery behind Mission Dolores Basilica is where Madeleine stands transfixed before the grave of Carlotta Valdes, fueling the supernatural mystery at the heart of Vertigo. The real grave does not exist — it was a prop created for the film.',
+    historyBlurb:
+      'Mission San Francisco de Asís, founded June 29, 1776, is the oldest intact building in San Francisco. The cemetery holds the remains of early California settlers, Native Ohlone people, and city founders. The Basilica next door was added in 1918.',
+    photo: '/images/missiondolorescemetery.webp',
+    website: 'https://missiondolores.org/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Mission_San_Francisco_de_As%C3%ADs',
+  },
+  {
+    id: 4,
+    name: 'Alamo Square / Painted Ladies',
+    address: '710 Steiner St, San Francisco, CA 94117',
+    lat: 37.7762,
+    lng: -122.435,
+    neighborhood: 'Alamo Square',
+    films: ['Mrs. Doubtfire (1993)', 'Nine Months (1995)'],
+    filmBlurb:
+      "The row of colorful Victorian houses known as the Painted Ladies became internationally famous as the backdrop for Robin Williams's 2640 Steiner Street family home in Mrs. Doubtfire. The park across the street has been used for countless establishing shots of \"classic San Francisco.\"",
+    historyBlurb:
+      'The Painted Ladies — formally the Postcard Row — were built between 1892 and 1896 by developer Matthew Kavanaugh. They survived the 1906 earthquake and fire. The park itself offers a sweeping panoramic view of the downtown skyline, making it one of the most photographed spots in the city.',
+    photo: '/images/alamosquarepaintedladies.webp',
+    website: null,
+    wikipedia: 'https://en.wikipedia.org/wiki/Painted_Ladies',
+  },
+  {
+    id: 5,
+    name: 'San Francisco City Hall',
+    address: '1 Dr Carlton B Goodlett Pl, San Francisco, CA 94102',
+    lat: 37.7792,
+    lng: -122.4191,
+    neighborhood: 'Civic Center',
+    films: ['Milk (2008)', 'The Times of Harvey Milk (1984)', 'Zodiac (2007)'],
+    filmBlurb:
+      'Gus Van Sant filmed the interior of City Hall extensively for Milk, Sean Penn\'s portrayal of Harvey Milk. The building\'s grand rotunda served as both the site of Milk\'s assassination and the subsequent candlelight vigil that drew 30,000 mourners.',
+    historyBlurb:
+      'Completed in 1915 and rebuilt after the 1906 earthquake, San Francisco City Hall is a Beaux-Arts masterpiece. Its dome rises 307 feet — taller than the US Capitol. Supervisor Harvey Milk was assassinated here on November 27, 1978, alongside Mayor George Moscone.',
+    photo: '/images/sanfranciscocityhall.jpg',
+    website: 'https://sf.gov/departments/city-hall',
+    wikipedia: 'https://en.wikipedia.org/wiki/San_Francisco_City_Hall',
+  },
+  {
+    id: 6,
+    name: 'Ghirardelli Square',
+    address: '900 North Point St, San Francisco, CA 94109',
+    lat: 37.8057,
+    lng: -122.4224,
+    neighborhood: 'Fisherman\'s Wharf',
+    films: ['The Conversation (1974)'],
+    filmBlurb:
+      "Francis Ford Coppola opened The Conversation with a brilliant five-minute tracking shot across this square, where surveillance expert Harry Caul (Gene Hackman) covertly records a couple's conversation. The bustling plaza and its hidden microphones set the film's paranoid tone from frame one.",
+    historyBlurb:
+      'Domingo Ghirardelli began making chocolate here in 1852. The red-brick factory complex was converted into a retail and restaurant plaza in 1964 — one of the first adaptive reuse projects in the US. The original chocolate manufacturing equipment is still on display inside.',
+    photo: '/images/ghirardellisquare.jpeg',
+    website: 'https://www.ghirardellisq.com/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Ghirardelli_Square',
+  },
+  {
+    id: 7,
+    name: 'Embarcadero / Ferry Building',
+    address: 'One Ferry Building, San Francisco, CA 94105',
+    lat: 37.7955,
+    lng: -122.3937,
+    neighborhood: 'Embarcadero',
+    films: ['The Game (1997)', 'Dirty Harry (1971)'],
+    filmBlurb:
+      "David Fincher used the Ferry Building and the waterfront in The Game as a key disorientation set piece for Michael Douglas's character. The Embarcadero Freeway (demolished 1991) loomed over this area during Dirty Harry's era, giving those scenes their grimy urban texture.",
+    historyBlurb:
+      'The Ferry Building opened in 1898. Its 245-foot clock tower was modeled on the Giralda tower in Seville, Spain. Before the Bay Bridge opened in 1936, up to 50,000 commuters passed through daily. Today it houses a celebrated farmers market and artisan food vendors.',
+    photo: '/images/embarcaderoferrybuilding.jpg',
+    website: 'https://www.ferrybuildingmarketplace.com/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Ferry_Building',
+  },
+  {
+    id: 8,
+    name: 'Palace of Fine Arts',
+    address: '3601 Lyon St, San Francisco, CA 94123',
+    lat: 37.8029,
+    lng: -122.4487,
+    neighborhood: 'Marina',
+    films: ['Star Trek IV: The Voyage Home (1986)', 'The Rock (1996)', 'The Princess Diaries (2001)'],
+    filmBlurb:
+      'The Palace was used as a Starfleet Command exterior in Star Trek IV and as a staging area in The Rock. Its classical columns and serene lagoon have made it a reliable stand-in for ancient Rome or a timeless civic landmark in dozens of productions.',
+    historyBlurb:
+      'Bernard Maybeck designed the Palace for the 1915 Panama–Pacific International Exposition. It was the only structure from the Expo not torn down — locals rallied to preserve it. The original stucco rotted away and was reconstructed in concrete in 1965. The rotunda was fully restored again in 2007.',
+    photo: '/images/palaceoffinearts.jpg',
+    website: null,
+    wikipedia: 'https://en.wikipedia.org/wiki/Palace_of_Fine_Arts',
+  },
+  {
+    id: 9,
+    name: 'Alcatraz Island',
+    address: 'Alcatraz Island, San Francisco, CA 94133',
+    lat: 37.827,
+    lng: -122.423,
+    neighborhood: 'San Francisco Bay',
+    films: ['The Rock (1996)', 'Escape from Alcatraz (1979)', 'Murder in the First (1995)'],
+    filmBlurb:
+      "The island prison was the star of its own genre. Clint Eastwood played real-life escapee Frank Morris in Escape from Alcatraz, filming on the actual cell block. Michael Bay's The Rock turned the closed prison into an action spectacle with Nicolas Cage and Sean Connery.",
+    historyBlurb:
+      'The island served as a military fort and prison from 1850 before becoming a federal penitentiary in 1934. It held Al Capone, Machine Gun Kelly, and Robert Stroud (the Birdman). The prison closed in 1963 due to high operating costs and deteriorating facilities. In 1969, Native American activists occupied it for 19 months.',
+    photo: '/images/alcatrazisland.avif',
+    website: 'https://www.nps.gov/alca/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Alcatraz_Island',
+  },
+  {
+    id: 10,
+    name: 'The Castro Theatre',
+    address: '429 Castro St, San Francisco, CA 94114',
+    lat: 37.7621,
+    lng: -122.435,
+    neighborhood: 'The Castro',
+    films: ['Milk (2008)', 'The Times of Harvey Milk (1984)'],
+    filmBlurb:
+      'The Castro Theatre is both a real filming location and a symbol of the neighborhood Harvey Milk fought for. Scenes depicting community solidarity were filmed here, and the theater hosted the real Harvey Milk\'s political rallies. The Mighty Wurlitzer organ still rises from the pit before screenings.',
+    historyBlurb:
+      'Designed by architect Timothy Pflueger in Spanish Colonial Revival style and opened in 1922, the Castro Theatre is one of America\'s great surviving movie palaces. It seats 1,400 and has hosted the San Francisco International Film Festival for decades. It was designated a San Francisco landmark in 1977.',
+    photo: '/images/thecastrotheater.jpg',
+    website: 'https://www.castrotheatre.com/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Castro_Theatre',
+  },
+  {
+    id: 11,
+    name: 'Coit Tower',
+    address: '1 Telegraph Hill Blvd, San Francisco, CA 94133',
+    lat: 37.8024,
+    lng: -122.4058,
+    neighborhood: 'Telegraph Hill',
+    films: ['Shadow of a Doubt (1943)', 'Dark Passage (1947)'],
+    filmBlurb:
+      "Hitchcock used Telegraph Hill and its winding streets for exterior shots in Shadow of a Doubt, lending the film its sense of a city that knows more than it lets on. Dark Passage features Humphrey Bogart navigating these very steps as a fugitive.",
+    historyBlurb:
+      'The 210-foot Art Deco tower was completed in 1933, funded by Lillie Hitchcock Coit who left a third of her estate to beautify the city. The base is ringed with New Deal-era murals by Diego Rivera\'s students depicting California laborers. Wild parrots — descendants of escaped pets — nest in the surrounding trees.',
+    photo: '/images/coittower.webp',
+    website: null,
+    wikipedia: 'https://en.wikipedia.org/wiki/Coit_Tower',
+  },
+  {
+    id: 12,
+    name: 'Lombard Street (Crooked Block)',
+    address: 'Lombard St between Hyde & Leavenworth, San Francisco, CA 94109',
+    lat: 37.802,
+    lng: -122.419,
+    neighborhood: 'Russian Hill',
+    films: ["What's Up, Doc? (1972)", 'Vertigo (1958)', 'Bullitt (1968)'],
+    filmBlurb:
+      "Peter Bogdanovich sent Barbra Streisand barreling down the crookedest block in a rattan basket cart in What's Up, Doc? Steve McQueen's legendary Bullitt chase sequence used surrounding Russian Hill streets. The block has appeared in hundreds of productions as shorthand for \"San Francisco.\"",
+    historyBlurb:
+      "The block of Lombard between Hyde and Leavenworth was redesigned in 1922 with eight hairpin turns to reduce the 27% grade to something cars could navigate. It's actually not the crookedest street in SF — that's Vermont Street in Potrero Hill — but it photographs better.",
+    photo: '/images/lombardstreet.jpg',
+    website: null,
+    wikipedia: 'https://en.wikipedia.org/wiki/Lombard_Street_(San_Francisco)',
+  },
+  {
+    id: 13,
+    name: 'Transamerica Pyramid',
+    address: '600 Montgomery St, San Francisco, CA 94111',
+    lat: 37.7952,
+    lng: -122.4028,
+    neighborhood: 'Financial District',
+    films: ['The Conversation (1974)', 'Ant-Man (2015)', 'Class Action (1991)'],
+    filmBlurb:
+      "Coppola used the Pyramid as a visual anchor throughout The Conversation, its spire visible in the background as Harry Caul's surveillance work unravels. The building also anchors Marvel's Ant-Man as San Francisco's most recognizable skyline element.",
+    historyBlurb:
+      'Designed by William Pereira and completed in 1972, the Transamerica Pyramid stood as San Francisco\'s tallest building until 2018. It was controversial upon completion — critics called it an "ice-cream cone" and a "dunce cap" — but it is now a beloved city icon. The site was previously Montgomery Block, where Mark Twain and Sun Yat-sen once worked.',
+    photo: '/images/transamericapyramid.webp',
+    website: null,
+    wikipedia: 'https://en.wikipedia.org/wiki/Transamerica_Pyramid',
+  },
+  {
+    id: 14,
+    name: 'Justin Herman Plaza / Vaillancourt Fountain',
+    address: 'Market St & Steuart St, San Francisco, CA 94105',
+    lat: 37.7941,
+    lng: -122.3946,
+    neighborhood: 'Embarcadero',
+    films: ['Dirty Harry (1971)', 'The Dead Pool (1988)', 'The Game (1997)'],
+    filmBlurb:
+      "Clint Eastwood's Dirty Harry used the plaza repeatedly during the era when the Embarcadero Freeway cast the area in perpetual shadow. In The Dead Pool, a remote-control car carrying a bomb chases Callahan through the fountain. David Fincher returned for The Game.",
+    historyBlurb:
+      'The plaza opened in 1972 along with Armand Vaillancourt\'s brutalist concrete fountain — one of the most controversial public artworks in city history. Locals called it "assembly-required plumbing" and "Quebec Easter Island." The fountain was repaired multiple times after Bono spray-painted it during a U2 concert in 1987.',
+    photo: '/images/justinhermanplazavailancourtfountain.jpg',
+    website: null,
+    wikipedia: 'https://en.wikipedia.org/wiki/Justin_Herman_Plaza',
+  },
+  {
+    id: 15,
+    name: 'Roxie Theater',
+    address: '3117 16th St, San Francisco, CA 94103',
+    lat: 37.7645,
+    lng: -122.422,
+    neighborhood: 'Mission',
+    films: ['Milk (2008)', 'Various SF premieres'],
+    filmBlurb:
+      'The Roxie has hosted dozens of SF-set film premieres and is itself a recurring backdrop in films set in the Mission District. It was the home of the San Francisco International Film Festival before the festival outgrew it.',
+    historyBlurb:
+      "Opened in 1909, the Roxie is the oldest continually operating cinema in the United States. It's a nonprofit film arts organization that programs independent, foreign, and revival cinema. The Roxie survived the multiplex era, the DVD era, and the streaming era through community support and an unwavering commitment to physical projection.",
+    photo: '/images/roxietheater.png',
+    website: 'https://www.roxie.com/',
+    wikipedia: 'https://en.wikipedia.org/wiki/Roxie_Theater',
+  },
+]

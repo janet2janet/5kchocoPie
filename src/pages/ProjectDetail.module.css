@@ -1,0 +1,11 @@
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.tabContent {
+  border: 2px solid;
+  border-color: #e8e8e8 #808080 #808080 #e8e8e8;
+  background: #d4d0c8;
+}
