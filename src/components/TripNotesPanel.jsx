@@ -1,17 +1,13 @@
-import { useRef, useState, useCallback, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useRef, useState, useEffect } from 'react'
 import { useTrip } from '../contexts/TripContext'
 import styles from './TripNotesPanel.module.css'
 
 export default function TripNotesPanel() {
   const { stops, notes, setNotes, removeStop, moveStop, distances } = useTrip()
-  const routerLoc = useLocation()
   const [minimized, setMinimized] = useState(false)
   const [printOpen, setPrintOpen] = useState(false)
   const [pos, setPos] = useState({ x: null, y: 120 })
-  const isDragging = useRef(false)
   const dragOffset = useRef({ x: 0, y: 0 })
-  const panelRef = useRef(null)
 
   useEffect(() => {
     if (pos.x === null) {
@@ -19,25 +15,22 @@ export default function TripNotesPanel() {
     }
   }, [pos.x])
 
-  const onMouseMove = useCallback((e) => {
-    if (!isDragging.current) return
-    setPos({
-      x: Math.max(0, Math.min(e.clientX - dragOffset.current.x, window.innerWidth - 300)),
-      y: Math.max(0, Math.min(e.clientY - dragOffset.current.y, window.innerHeight - 60)),
-    })
-  }, [])
-
-  const onMouseUp = useCallback(() => {
-    isDragging.current = false
-    document.removeEventListener('mousemove', onMouseMove)
-    document.removeEventListener('mouseup', onMouseUp)
-  }, [onMouseMove])
-
-  const onMouseDown = (e) => {
-    isDragging.current = true
+  const onPointerDown = (e) => {
+    if (e.button !== 0) return
     dragOffset.current = { x: e.clientX - pos.x, y: e.clientY - pos.y }
-    document.addEventListener('mousemove', onMouseMove)
-    document.addEventListener('mouseup', onMouseUp)
+
+    const onMove = (ev) => {
+      setPos({
+        x: Math.max(0, Math.min(ev.clientX - dragOffset.current.x, window.innerWidth - 300)),
+        y: Math.max(0, Math.min(ev.clientY - dragOffset.current.y, window.innerHeight - 60)),
+      })
+    }
+    const onUp = () => {
+      document.removeEventListener('pointermove', onMove)
+      document.removeEventListener('pointerup', onUp)
+    }
+    document.addEventListener('pointermove', onMove)
+    document.addEventListener('pointerup', onUp)
     e.preventDefault()
   }
 
@@ -46,23 +39,23 @@ export default function TripNotesPanel() {
   return (
     <>
       <div
-        ref={panelRef}
         className={styles.panel}
         style={{ left: pos.x, top: pos.y }}
       >
-        <div className={styles.titlebar} onMouseDown={onMouseDown}>
-          <span className={styles.title}>✦ MY TRIP NOTES ✦</span>
+        <div
+          className={styles.titlebar}
+          onPointerDown={onPointerDown}
+        >
+          <span className={styles.title}>🎬 My Trip Notes</span>
           <div className={styles.controls}>
-            <button className={styles.btn} onClick={() => setMinimized(m => !m)} title="Minimize">
-              {minimized ? '▲' : '▼'}
-            </button>
+            <button className={styles.btn} onClick={() => setMinimized(m => !m)} title="Minimize">_</button>
           </div>
         </div>
 
         {!minimized && (
           <div className={styles.body}>
             <div className={styles.section}>
-              <div className={styles.sectionLabel}>:: STOPS ({stops.length}) ::</div>
+              <div className={styles.sectionLabel}>Stops ({stops.length})</div>
               {stops.length === 0 && (
                 <div className={styles.empty}>No stops yet — click<br/>"Add to Trip" on any location!</div>
               )}
@@ -80,7 +73,7 @@ export default function TripNotesPanel() {
             </div>
 
             <div className={styles.section}>
-              <div className={styles.sectionLabel}>:: NOTES ::</div>
+              <div className={styles.sectionLabel}>Notes</div>
               <textarea
                 className={styles.notes}
                 value={notes}
@@ -95,7 +88,7 @@ export default function TripNotesPanel() {
               onClick={() => setPrintOpen(true)}
               disabled={stops.length === 0}
             >
-              ★ PRINT ROUTE (GPS STYLE) ★
+              🖨 Print Route (GPS Style)
             </button>
           </div>
         )}

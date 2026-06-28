@@ -50,7 +50,11 @@ body {
   background-attachment: fixed;
   background-size: 100% 100%;
   min-height: 100vh;
+  cursor: none;
 }
+
+/* Hide native cursor everywhere so JS cursor takes over */
+*, *::before, *::after { cursor: none !important; }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 10px; }

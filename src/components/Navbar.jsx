@@ -2,10 +2,10 @@ import { Link, useLocation } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 const SF_LINKS = [
-  { to: '/sf-guide', label: '[ SF GUIDE ]' },
-  { to: '/sf-guide/locations', label: '[ MAP ]' },
-  { to: '/sf-guide/shops', label: '[ SHOPS ]' },
-  { to: '/sf-guide/planner', label: '[ PLANNER ]' },
+  { to: '/sf-guide',           label: '✿ SF GUIDE', cls: styles.green  },
+  { to: '/sf-guide/locations', label: '★ MAP',      cls: styles.blue   },
+  { to: '/sf-guide/shops',     label: '♥ SHOPS',    cls: styles.gold   },
+  { to: '/sf-guide/planner',   label: '✦ PLANNER',  cls: styles.purple },
 ]
 
 export default function Navbar() {
@@ -29,17 +29,17 @@ export default function Navbar() {
         <div className={styles.navLinks}>
           <Link
             to="/"
-            className={styles.navLink + (!onSF ? ' ' + styles.navLinkActive : '')}
+            className={`${styles.navLink} ${styles.pink} ${!onSF ? styles.navLinkActive : ''}`}
           >
-            [ HOME ]
+            ★ HOME
           </Link>
 
           <div className={styles.sfGroup}>
-            {SF_LINKS.map(({ to, label }) => (
+            {SF_LINKS.map(({ to, label, cls }) => (
               <Link
                 key={to}
                 to={to}
-                className={styles.navLink + (pathname === to ? ' ' + styles.navLinkActive : '')}
+                className={`${styles.navLink} ${cls} ${pathname === to ? styles.navLinkActive : ''}`}
               >
                 {label}
               </Link>

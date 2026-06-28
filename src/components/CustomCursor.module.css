@@ -1,0 +1,19 @@
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  width: 54px;
+  height: 72px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: contain;
+  transform: translate(-50%, -18%);
+  top: -200px;
+  left: -200px;
+  opacity: 0;
+  transition: filter 0.12s ease;
+}
+
+.blue {
+  filter: hue-rotate(185deg) saturate(1.1) brightness(1.08);
+}

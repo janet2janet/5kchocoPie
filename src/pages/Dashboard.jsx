@@ -3,6 +3,7 @@ import { getProjects, createProject } from '../api/client'
 import ProjectCard from '../components/ProjectCard'
 import WindowFrame from '../components/WindowFrame'
 import styles from './Dashboard.module.css'
+import LavaLamp from '../components/LavaLamp'
 
 export default function Dashboard() {
   const [projects, setProjects] = useState([])
@@ -29,7 +30,9 @@ export default function Dashboard() {
   }
 
   return (
-    <main className={styles.main}>
+    <>
+    <LavaLamp />
+    <main className={styles.main} style={{ position: 'relative', zIndex: 1 }}>
       <div className={styles.header}>
         <div className="neon-text" style={{ fontFamily: "'Press Start 2P'", fontSize: 14 }}>
           ★ MY FILM PROJECTS ★
@@ -109,5 +112,6 @@ export default function Dashboard() {
         </div>
       )}
     </main>
+    </>
   )
 }

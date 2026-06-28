@@ -1,0 +1,35 @@
+.lamp {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  opacity: 0.45;
+  filter: blur(60px);
+  animation:
+    blob-float var(--t1) ease-in-out infinite alternate,
+    blob-morph var(--t2) ease-in-out infinite alternate;
+  will-change: transform, border-radius;
+}
+
+@keyframes blob-float {
+  0%   { transform: translateY(0px)   translateX(0px); }
+  20%  { transform: translateY(-70px)  translateX(25px); }
+  40%  { transform: translateY(-30px)  translateX(-35px); }
+  60%  { transform: translateY(-110px) translateX(45px); }
+  80%  { transform: translateY(-55px)  translateX(-15px); }
+  100% { transform: translateY(-85px)  translateX(30px); }
+}
+
+@keyframes blob-morph {
+  0%   { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  20%  { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  40%  { border-radius: 50% 40% 60% 30% / 40% 70% 30% 60%; }
+  60%  { border-radius: 70% 30% 50% 60% / 60% 40% 70% 30%; }
+  80%  { border-radius: 40% 70% 30% 60% / 30% 50% 60% 40%; }
+  100% { border-radius: 55% 45% 65% 35% / 45% 65% 35% 55%; }
+}

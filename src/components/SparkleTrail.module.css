@@ -1,0 +1,22 @@
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  animation: sparkle-fly 0.75s ease-out forwards;
+  text-shadow: 0 0 6px currentColor, 0 0 12px currentColor;
+  line-height: 1;
+  display: inline-block;
+  user-select: none;
+}
+
+@keyframes sparkle-fly {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.2);
+  }
+}

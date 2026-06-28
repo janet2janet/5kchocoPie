@@ -9,6 +9,8 @@ import TripPlanner from './pages/TripPlanner'
 import TripNotesPanel from './components/TripNotesPanel'
 import SFGuideLayout from './layouts/SFGuideLayout'
 import { TripProvider } from './contexts/TripContext'
+import CustomCursor from './components/CustomCursor'
+import SparkleTrail from './components/SparkleTrail'
 
 export default function App() {
   return (
@@ -26,6 +28,8 @@ export default function App() {
           </Route>
         </Routes>
         <TripNotesPanel />
+        <CustomCursor />
+        <SparkleTrail />
       </BrowserRouter>
     </TripProvider>
   )

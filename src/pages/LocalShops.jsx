@@ -119,7 +119,7 @@ function ShopCard({ shop, added, onAddTrip }) {
         <div className={styles.address}>{shop.address}</div>
 
         <div className={styles.photoRow}>
-          <img src={shop.photo} alt={shop.name} className={styles.photo} loading="lazy" />
+          <img src={import.meta.env.BASE_URL + shop.photo} alt={shop.name} className={styles.photo} loading="lazy" />
         </div>
 
         <p className={styles.blurb}>{shop.blurb}</p>

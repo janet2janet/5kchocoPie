@@ -1,116 +1,163 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import styles from './SFGuideHome.module.css'
 
-const CARDS = [
+const LOGO = [
+  { char: 'S', color: '#ff1466' },
+  { char: 'F', color: '#ff66aa' },
+  { char: ' ', color: 'transparent' },
+  { char: 'F', color: '#cc33ff' },
+  { char: 'i', color: '#ff1466' },
+  { char: 'l', color: '#ffaa00' },
+  { char: 'm', color: '#ff66aa' },
+  { char: ' ', color: 'transparent' },
+  { char: 'G', color: '#ff1466' },
+  { char: 'u', color: '#cc33ff' },
+  { char: 'i', color: '#ff66aa' },
+  { char: 'd', color: '#ffaa00' },
+  { char: 'e', color: '#ff1466' },
+]
+
+const RESULTS = [
   {
     to: '/sf-guide/locations',
-    icon: '🗺',
-    title: 'FILM LOCATIONS',
-    sub: 'Celluloid SF Map',
-    desc: '15 iconic filming locations across San Francisco with history, film blurbs, photos & street view.',
-    color: '#003399',
+    title: 'Film Locations — Celluloid SF Map',
+    url: '5kchocopie.com/sf-guide/locations',
+    desc: '15 iconic filming locations across San Francisco with history, film blurbs, photos & street view. From Hitchcock\'s Vertigo to The Matrix Reloaded — find exactly where it was filmed.',
   },
   {
     to: '/sf-guide/shops',
-    icon: '🎞',
-    title: 'LOCAL SPOTS',
-    sub: 'Shops, Cinemas & Cafes',
-    desc: 'Film archives, video stores, bookshops, cameras & community cafes — open and historical.',
-    color: '#006600',
+    title: 'Local Spots — Shops, Cinemas & Archives',
+    url: '5kchocopie.com/sf-guide/shops',
+    desc: 'Film archives, video stores, independent bookshops, camera stores & community cinemas — open today and beloved historical spots that shaped SF\'s film culture.',
   },
   {
     to: '/sf-guide/planner',
-    icon: '🖨',
-    title: 'TRIP PLANNER',
-    sub: 'GPS Printout Mode',
-    desc: 'Build your personal itinerary and print a retro 2000s-style GPS route sheet to take on the road.',
-    color: '#660066',
+    title: 'Trip Planner — GPS Printout Mode',
+    url: '5kchocopie.com/sf-guide/planner',
+    desc: 'Build your personal SF film itinerary and print a retro Y2K-style GPS route sheet to take on the road. Save stops from the map and plan your cinematic tour of the city.',
+  },
+  {
+    to: '/',
+    title: '5kChocoPie — Short Film Production Planner',
+    url: '5kchocopie.com',
+    desc: 'Your Y2K-themed short film production planning tool. Manage budgets, track gear, cast & crew — all in one sparkly place.',
   },
 ]
 
 export default function SFGuideHome() {
+  const navigate = useNavigate()
+  const [query, setQuery] = useState('')
+  const [showNotif, setShowNotif] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setShowNotif(true), 800)
+    return () => clearTimeout(t)
+  }, [])
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    navigate('/sf-guide/locations')
+  }
+
+  const handleLucky = () => {
+    const pages = ['/sf-guide/locations', '/sf-guide/shops', '/sf-guide/planner']
+    navigate(pages[Math.floor(Math.random() * pages.length)])
+  }
+
   return (
     <div className={styles.page}>
-      <div className={styles.filmstrip}>
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div key={i} className={styles.filmCell} />
-        ))}
-      </div>
+      <div className={styles.center}>
 
-      <div className={styles.hero}>
-        <div className={styles.heroTag}>✦ EST. 1908 ✦</div>
-        <h1 className={styles.heroTitle}>
-          <span className={styles.heroSF}>SAN FRANCISCO</span>
-          <br />
-          <span className={styles.heroFilm}>FILM GUIDE</span>
+        <h1 className={styles.logo}>
+          {LOGO.map((l, i) => (
+            <span key={i} style={{ color: l.color }}>{l.char}</span>
+          ))}
         </h1>
-        <p className={styles.heroSub}>
-          Your complete resource for SF's filmmaking history, locations, and community.
-        </p>
-        <div className={styles.heroDivider}>
-          ★━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━★
-        </div>
-      </div>
 
-      <div className={styles.intro}>
-        <div className="window" style={{ maxWidth: 760, margin: '0 auto' }}>
-          <div className="window-titlebar">
-            <span className="window-title">ABOUT THIS GUIDE</span>
-            <div className="window-controls">
-              <button className="window-btn">_</button>
-              <button className="window-btn">□</button>
-              <button className="window-btn close">✕</button>
+        <nav className={styles.tabs}>
+          <Link to="/sf-guide/locations" className={styles.tab}>Locations</Link>
+          <Link to="/sf-guide/shops"     className={styles.tab}>Local Spots</Link>
+          <Link to="/sf-guide/planner"   className={styles.tab}>Trip Planner</Link>
+          <Link to="/"                   className={styles.tab}>↩ Home</Link>
+        </nav>
+
+        <form className={styles.searchArea} onSubmit={handleSearch}>
+          <div className={styles.searchRow}>
+            <input
+              className={styles.searchBox}
+              type="text"
+              value={query}
+              onChange={e => setQuery(e.target.value)}
+              autoComplete="off"
+            />
+            <div className={styles.sideLinks}>
+              <Link to="/sf-guide/locations">· Film Locations</Link>
+              <Link to="/sf-guide/shops">· Local Spots</Link>
+              <Link to="/sf-guide/planner">· Trip Planner</Link>
             </div>
           </div>
-          <div className="window-content" style={{ color: '#000', lineHeight: 1.6, fontSize: 17 }}>
-            <p>
-              San Francisco has been one of Hollywood's most beloved locations since the silent era.
-              From Hitchcock's fog-drenched obsessions to Coppola's paranoid masterpieces to the Marvel
-              universe, the city has played itself — and countless other roles — in hundreds of films.
-            </p>
-            <br />
-            <p>
-              This guide is inspired by the book <em>Celluloid San Francisco</em> by Burskirk and Shank,
-              which mapped the city's filming history neighborhood by neighborhood. Use the interactive
-              map to find locations, discover local film culture spots, and plan your own personal
-              cinematic tour of the city.
-            </p>
-            <div className="y2k-divider">★ ★ ★</div>
-            <p style={{ fontSize: 15, color: '#555' }}>
-              TIP: Use the floating <strong>Trip Notes</strong> panel (bottom-right) to save stops and
-              print a retro GPS itinerary to take with you!
-            </p>
+          <div className={styles.btnRow}>
+            <button type="submit" className={styles.btn}>Search SF Guide</button>
+            <button type="button" className={styles.btn} onClick={handleLucky}>I'm Feeling Lucky ✦</button>
           </div>
+        </form>
+
+        {showNotif && (
+          <div className={styles.notif}>
+            <div className={styles.notifTitlebar}>
+              <span className={styles.notifTitle}>SF Film Guide</span>
+              <button className={styles.notifClose} onClick={() => setShowNotif(false)}>✕</button>
+            </div>
+            <div className={styles.notifBody}>
+              <div className={styles.notifIcon}>ℹ️</div>
+              <div className={styles.notifText}>
+                <p>
+                  San Francisco has been one of Hollywood's most beloved locations since the silent era.
+                  From Hitchcock's fog-drenched obsessions to Coppola's paranoid masterpieces to the Marvel
+                  universe, the city has played itself — and countless other roles — in hundreds of films.
+                </p>
+                <p>
+                  This guide is inspired by <em>Celluloid San Francisco</em> by Burskirk and Shank.
+                  Use the map to find locations, discover local film spots, and plan your own cinematic tour.
+                </p>
+                <p className={styles.notifTip}>
+                  TIP: Use the floating <strong>Trip Notes</strong> panel (bottom-right) to save stops and print a retro GPS itinerary!
+                </p>
+              </div>
+            </div>
+            <div className={styles.notifFooter}>
+              <button className={styles.notifOk} onClick={() => setShowNotif(false)}>OK</button>
+            </div>
+          </div>
+        )}
+
+        <div className={styles.resultsHeader}>
+          Results <b>1–4</b> of <b>4</b> for <em>sf film guide</em>
         </div>
+
+        <div className={styles.results}>
+          {RESULTS.map(r => (
+            <Link key={r.to} to={r.to} className={styles.result}>
+              <div className={styles.resultTitle}>{r.title}</div>
+              <div className={styles.resultUrl}>{r.url}</div>
+              <div className={styles.resultDesc}>{r.desc}</div>
+            </Link>
+          ))}
+        </div>
+
       </div>
 
-      <div className={styles.cards}>
-        {CARDS.map(card => (
-          <Link key={card.to} to={card.to} className={styles.card} style={{ '--card-color': card.color }}>
-            <div className={styles.cardTitlebar} style={{ background: `linear-gradient(to right, ${card.color}, ${card.color}bb)` }}>
-              <span className={styles.cardTitle}>{card.title}</span>
-            </div>
-            <div className={styles.cardBody}>
-              <div className={styles.cardIcon}>{card.icon}</div>
-              <div className={styles.cardSub}>{card.sub}</div>
-              <p className={styles.cardDesc}>{card.desc}</p>
-              <div className={styles.cardBtn}>ENTER ▶</div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <footer className={styles.footer}>
+        <Link to="/sf-guide/locations">Film Locations</Link>
+        {' · '}
+        <Link to="/sf-guide/shops">Local Spots</Link>
+        {' · '}
+        <Link to="/sf-guide/planner">Trip Planner</Link>
+        {' · '}
+        <Link to="/">5kChocoPie Home</Link>
+      </footer>
 
-      <div className={styles.filmstrip} style={{ marginTop: 40 }}>
-        {Array.from({ length: 20 }).map((_, i) => (
-          <div key={i} className={styles.filmCell} />
-        ))}
-      </div>
-
-      <div className={styles.footer}>
-        <span className="blink" style={{ color: 'var(--neon-pink)' }}>★</span>
-        {' '}SF FILM GUIDE · A 5kChocoPie Resource{' '}
-        <span className="blink" style={{ color: 'var(--neon-pink)' }}>★</span>
-      </div>
     </div>
   )
 }
